@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "inandout-app": {
+      "hosting": {
+        "ingresoEgreso": [
+          "inandout-app"
+        ]
+      }
+    }
+  }
+}
