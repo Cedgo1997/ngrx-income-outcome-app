@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AuthService } from "src/app/services/auth.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: "app-register",
@@ -30,13 +31,27 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
+    Swal.fire({
+      title: "¡Cargando!",
+      willOpen: () => {
+        Swal.showLoading();
+      },
+    });
+
     const { usuario, correo, contrasena } = this.formGroup.value;
     this.authService
       .crearUsuario(usuario, correo, contrasena)
       .then((credenciales) => {
+        Swal.close();
         console.log(credenciales);
         this.router.navigate(["/"]);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: err.message,
+        });
+      });
   }
 }
