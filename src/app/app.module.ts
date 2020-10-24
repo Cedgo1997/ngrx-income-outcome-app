@@ -7,7 +7,6 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFireAnalyticsModule } from "@angular/fire/analytics";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { ReactiveFormsModule } from "@angular/forms";
-import { AngularFireAuthModule } from "@angular/fire/auth";
 
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./auth/login/login.component";
@@ -42,7 +41,6 @@ import { environment } from "../environments/environment";
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
-    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
