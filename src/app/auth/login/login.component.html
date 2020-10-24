@@ -6,7 +6,7 @@
       <div class="col-lg-4 mx-auto">
         <h2 class="text-center mb-4" style="color: white">Ingresar</h2>
         <div class="auto-form-wrapper">
-          <form [formGroup]="formGroup" (ngSubmit)="login()" >
+          <form [formGroup]="formGroup" (ngSubmit)="login()">
             <div class="form-group">
               <label class="label">Correo</label>
               <div class="input-group">
@@ -18,7 +18,10 @@
                 />
                 <div class="input-group-append">
                   <span class="input-group-text">
-                    <i class="fa fa-check-circle"></i>
+                    <i
+                      *ngIf="formGroup.get('correo').valid"
+                      class="fa fa-check-circle"
+                    ></i>
                   </span>
                 </div>
               </div>
@@ -35,7 +38,10 @@
                 />
                 <div class="input-group-append">
                   <span class="input-group-text">
-                    <i class="fa fa-check-circle"></i>
+                    <i
+                      *ngIf="formGroup.get('contrasena').valid"
+                      class="fa fa-check-circle"
+                    ></i>
                   </span>
                 </div>
               </div>
