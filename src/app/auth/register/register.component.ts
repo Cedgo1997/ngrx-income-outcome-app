@@ -34,6 +34,7 @@ export class RegisterComponent implements OnInit {
     this.authService
       .crearUsuario(usuario, correo, contrasena)
       .then((credenciales) => {
+        console.log(credenciales);
         this.router.navigate(["/"]);
       })
       .catch((err) => console.error(err));
