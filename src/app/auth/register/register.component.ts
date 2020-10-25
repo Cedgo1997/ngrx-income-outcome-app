@@ -67,11 +67,11 @@ export class RegisterComponent implements OnInit, OnDestroy {
       })
       .catch((err) => {
         this.store.dispatch(stopLoading());
-        /* Swal.fire({
+        Swal.fire({
           icon: "error",
           title: "Oops...",
           text: err.message,
-        }); */
+        });
       });
   }
 }
