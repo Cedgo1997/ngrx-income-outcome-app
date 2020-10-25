@@ -12,12 +12,13 @@ import { Usuario } from "../models/usuario.model";
   providedIn: "root",
 })
 export class AuthService {
-  usuarioSubs: Subscription;
   constructor(
     private auth: AngularFireAuth,
     public firestore: AngularFirestore,
     private store: Store<AppState>
   ) {}
+
+  usuarioSubs: Subscription;
 
   initAuthListener() {
     this.auth.authState.subscribe((fuser) => {
@@ -30,7 +31,9 @@ export class AuthService {
             this.store.dispatch(authActions.setUser({ usuario }));
           });
       } else {
-        this.usuarioSubs.unsubscribe();
+        if (this.usuarioSubs) {
+          this.usuarioSubs.unsubscribe();
+        }
         this.store.dispatch(authActions.unsetUser());
       }
     });
