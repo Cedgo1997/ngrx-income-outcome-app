@@ -3,11 +3,19 @@ import { NgModule } from "@angular/core";
 
 // Modulos
 import { AppRoutingModule } from "./app-routing.module";
+import { ReactiveFormsModule } from "@angular/forms";
+
+//Angular Fire and Firestore
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAnalyticsModule } from "@angular/fire/analytics";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
-import { ReactiveFormsModule } from "@angular/forms";
 
+// NGRX
+import { StoreModule } from "@ngrx/store";
+import { appReducers } from "./app.reducer";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+
+//Components
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { RegisterComponent } from "./auth/register/register.component";
@@ -25,22 +33,27 @@ import { environment } from "../environments/environment";
   declarations: [
     AppComponent,
     LoginComponent,
+    NavbarComponent,
+    FooterComponent,
+    SidebarComponent,
+    DetalleComponent,
     RegisterComponent,
     DashboardComponent,
-    IngresoEgresoComponent,
     EstadisticaComponent,
-    DetalleComponent,
-    FooterComponent,
-    NavbarComponent,
-    SidebarComponent,
+    IngresoEgresoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAnalyticsModule,
     AngularFirestoreModule,
+    AngularFireAnalyticsModule,
+    StoreModule.forRoot(appReducers),
+    AngularFireModule.initializeApp(environment.firebase),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
