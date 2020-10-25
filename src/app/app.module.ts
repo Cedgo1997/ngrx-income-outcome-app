@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 
 // Modulos
 import { AppRoutingModule } from "./app-routing.module";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 //Angular Fire and Firestore
 import { AngularFireModule } from "@angular/fire";
@@ -45,6 +45,7 @@ import { environment } from "../environments/environment";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     AngularFirestoreModule,
     AngularFireAnalyticsModule,
