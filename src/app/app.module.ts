@@ -4,6 +4,7 @@ import { NgModule } from "@angular/core";
 // Modulos
 import { AppRoutingModule } from "./app-routing.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ChartsModule } from 'ng2-charts';
 
 //Angular Fire and Firestore
 import { AngularFireModule } from "@angular/fire";
@@ -48,6 +49,7 @@ import { OrdenIngresosPipe } from './pipes/orden-ingresos.pipe';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ChartsModule,
     ReactiveFormsModule,
     AngularFirestoreModule,
     AngularFireAnalyticsModule,
