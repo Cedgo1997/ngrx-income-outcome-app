@@ -4,7 +4,6 @@ import { Subscription } from "rxjs";
 import { filter } from "rxjs/operators";
 import { AppState } from "../app.reducer";
 import { setItems } from "../ingreso-egreso/ingreso-egreso.actions";
-import { IngresoEgreso } from "../models/ingreso-egreso.model";
 import { IngresoEgresoService } from "../services/ingreso-egreso.service";
 
 @Component({
