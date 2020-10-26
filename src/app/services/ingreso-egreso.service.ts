@@ -18,6 +18,13 @@ export class IngresoEgresoService {
     return this.firestore
       .doc(`${this.authService.usuario.uid}/ingresos-egresos`)
       .collection("items")
-      .add({ ...ingresoEgreso })
+      .add({ ...ingresoEgreso });
+  }
+
+  initIngresosEgresosListener(uid: string) {
+    this.firestore
+      .collection(`${uid}/ingresos-egresos/items`)
+      .valueChanges()
+      .subscribe((algo) => console.log(algo));
   }
 }

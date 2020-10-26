@@ -34,7 +34,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
     this.uiSubs = this.store.select("ui").subscribe((ui) => {
       this.cargando = ui.isLoading;
-      console.log("cargando subs en register");
     });
   }
 
@@ -62,7 +61,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
       .then((credenciales) => {
         /* Swal.close(); */
         this.store.dispatch(stopLoading());
-        console.log(credenciales);
         this.router.navigate(["/"]);
       })
       .catch((err) => {

@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     this.uiSubs = this.store.select("ui").subscribe((ui) => {
       this.cargando = ui.isLoading;
-      console.log("cargando subs en login");
     });
   }
 
@@ -59,7 +58,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.authService
       .login(correo, contrasena)
       .then((credenciales) => {
-        console.log(credenciales);
         /* Swal.close(); */
         this.store.dispatch(stopLoading());
         this.router.navigate(["/"]);
