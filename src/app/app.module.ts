@@ -28,6 +28,7 @@ import { NavbarComponent } from "./shared/navbar/navbar.component";
 import { SidebarComponent } from "./shared/sidebar/sidebar.component";
 
 import { environment } from "../environments/environment";
+import { OrdenIngresosPipe } from './pipes/orden-ingresos.pipe';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { environment } from "../environments/environment";
     DashboardComponent,
     EstadisticaComponent,
     IngresoEgresoComponent,
+    OrdenIngresosPipe,
   ],
   imports: [
     BrowserModule,

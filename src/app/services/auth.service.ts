@@ -8,6 +8,7 @@ import "firebase/firestore";
 import { Store } from "@ngrx/store";
 import { AppState } from "../app.reducer";
 import * as authActions from "../auth/auth.actions";
+import * as ingresoEgresoActions from "./../ingreso-egreso/ingreso-egreso.actions";
 
 //rxjs
 import { Subscription } from "rxjs";
@@ -49,6 +50,7 @@ export class AuthService {
           this._usuario = null;
           this.usuarioSubs.unsubscribe();
         }
+        this.store.dispatch(ingresoEgresoActions.unsetItems());
         this.store.dispatch(authActions.unsetUser());
       }
     });
