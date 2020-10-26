@@ -1,7 +1,9 @@
 import { Injectable } from "@angular/core";
 
 import { AngularFirestore } from "@angular/fire/firestore";
+import { ActivatedRouteSnapshot } from "@angular/router";
 import "firebase/firestore";
+import { map } from "rxjs/operators";
 import { IngresoEgreso } from "../models/ingreso-egreso.model";
 import { AuthService } from "./auth.service";
 
@@ -24,7 +26,24 @@ export class IngresoEgresoService {
   initIngresosEgresosListener(uid: string) {
     this.firestore
       .collection(`${uid}/ingresos-egresos/items`)
-      .valueChanges()
+      .snapshotChanges()
+      .pipe(
+        map((snap) => {
+          return snap.map((doc) => {
+            const data: {} = doc.payload.doc.data();
+            return {
+              uid: doc.payload.doc.id,
+              ...data,
+            };
+          });
+        })
+      )
+
+      .pipe(
+        map((snap) => {
+          return snap;
+        })
+      )
       .subscribe((algo) => console.log(algo));
   }
 }
