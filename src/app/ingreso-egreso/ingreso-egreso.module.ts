@@ -15,6 +15,10 @@ import { IngresoEgresoComponent } from "./ingreso-egreso.component";
 
 //Pipes
 import { OrdenIngresosPipe } from "../pipes/orden-ingresos.pipe";
+import { StoreModule } from '@ngrx/store';
+
+//NGRX
+import { ingresoEgresoReducer } from './ingreso-egreso.reducer';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,7 @@ import { OrdenIngresosPipe } from "../pipes/orden-ingresos.pipe";
   ],
   imports: [
     CommonModule, 
+    StoreModule.forFeature('ingresosEgresos', ingresoEgresoReducer),
     ReactiveFormsModule, 
     ChartsModule, 
     SharedModule,
