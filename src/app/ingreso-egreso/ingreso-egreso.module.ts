@@ -3,6 +3,10 @@ import { CommonModule } from "@angular/common";
 import { ChartsModule } from "ng2-charts";
 import { ReactiveFormsModule } from "@angular/forms";
 
+//Modules
+import { SharedModule } from "../shared/shared.module";
+import { DashboardRoutesModule } from '../dashboard/dashboard-routes.module';
+
 // Components
 import { DetalleComponent } from "./detalle/detalle.component";
 import { DashboardComponent } from "../dashboard/dashboard.component";
@@ -11,7 +15,6 @@ import { IngresoEgresoComponent } from "./ingreso-egreso.component";
 
 //Pipes
 import { OrdenIngresosPipe } from "../pipes/orden-ingresos.pipe";
-import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -25,6 +28,8 @@ import { SharedModule } from "../shared/shared.module";
     CommonModule, 
     ReactiveFormsModule, 
     ChartsModule, 
-    SharedModule],
+    SharedModule,
+    DashboardRoutesModule
+  ],
 })
 export class IngresoEgresoModule {}
