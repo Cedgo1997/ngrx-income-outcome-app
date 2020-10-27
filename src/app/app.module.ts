@@ -20,14 +20,12 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { AppComponent } from "./app.component";
 
 import { environment } from "../environments/environment";
-import { IngresoEgresoModule } from "./ingreso-egreso/ingreso-egreso.module";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AuthModule,
-    IngresoEgresoModule,
     AppRoutingModule,
     AngularFirestoreModule,
     AngularFireAnalyticsModule,
